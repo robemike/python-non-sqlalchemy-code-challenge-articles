@@ -169,6 +169,7 @@ class Magazine:
         return article_titles if article_titles else None
 
     # contributing_authors returns a list of authors who have contributed multiple articles to the magazine.
+    # First counting the number of articles contributted by each Author and filters out those contributing more than two articles.
     def contributing_authors(self):
         author_counts = {}
         for article in self.articles():
