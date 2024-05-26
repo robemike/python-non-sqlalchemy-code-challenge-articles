@@ -102,11 +102,11 @@ class Magazine:
         return self._name
 
     @name.setter 
-    def name(Self, new_name):
+    def name(self, new_name):
 
         if isinstance(new_name, str):
             if 2 <= len(new_name) <= 16:
-                self_name = new_name
+                self._name = new_name
             else:
                 ValueError("Name must be between 2 and 16 characters")
         else:
@@ -136,11 +136,9 @@ class Magazine:
 
     def article_titles(self):
         article_titles = [magazine.title for magazine in self.articles()]
-        # check if article_titles list is not empty.
         if article_titles:
             return article_titles
         else:
-            # when empty 
             return None
 
     def contributing_authors(self):
