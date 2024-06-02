@@ -1,15 +1,15 @@
 # Definition of the class Article.
 class Article:
     # Initialize all to empty array(list).
-    # Acts as the class variable to store all articles(instances of Article class)
-    all = []
+    # This is a Class Attribute to store instances for the Article class (To store the Articles).
+    all = list()
 
     # Attribute initialization. (author, magazine, title).
     def __init__(self, author, magazine, title):
         self.author = author
         self.magazine = magazine
         self.title = title
-        # Appending Article to all list.
+        # Appending each new Article to all list (The class Attribute).
         Article.all.append(self)
 
     # Definition of the title property.(Allow it to be accessed as attributes)
@@ -20,12 +20,13 @@ class Article:
     # The below allow assigning of new value to title attribute
     @title.setter
     def title(self, new_title):
-        # Check whether "title" attribute already existsfor the instance
+        # Check whether "title" attribute already exists for the instance
         # If so, raise Attribute error.
         if hasattr(self, 'title'):
              AttributeError('Title cannot be changed')
         # The below checks if the new title is a string and is of lenth between 5 and 50 characters
         if isinstance(new_title, str) and 5 <= len(new_title) <= 50:
+        # If so new_title is assigned a New Value.
             self._title = new_title
         # If not so the below code blockis the one that runs.(ValueError)
         else:
@@ -41,6 +42,7 @@ class Article:
     def author(self, new_author):
         # Pass a codition to check whether the new author is an instance of the Author class.
         if isinstance(new_author, Author):
+        # If so, new_author is assigned a New Value.
             self._author = new_author
         # If not, the following block of code runs which is a TypeError.
         else:
@@ -56,6 +58,7 @@ class Article:
     def magazine(self, new_magazine):
         # Pass a codition to check whether the new magazine is an instance of the Magazine class.
         if isinstance(new_magazine, Magazine):
+        # If so, new_magazine is assigned a New Value.
             self._magazine = new_magazine
         # If not, the following block of code runs which is a TypeError.
         else:
